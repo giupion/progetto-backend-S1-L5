@@ -33,8 +33,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     if ($mysqli->query($updateQuery)) {
         echo "Libro aggiornato con successo!";
-        
-        //header("Location: ../index.php");
+        header("refresh:2;url=../index.php");
+        exit();
         
     } else {
         echo "Errore nell'aggiornamento del libro: " . $mysqli->error;
