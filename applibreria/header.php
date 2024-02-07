@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="libreriacss/libreria.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-    <title>App Biblioteca</title>
+    <title> SuperDataBooks</title>
 </head>
 <div class="container bg-success" fluid>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -21,6 +21,9 @@
         </li>
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="listalibri.php">Lista libri</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="listaautori.php">Lista autori</a>
         </li>
       </ul>
      <!-- <form class="d-flex" role="search">

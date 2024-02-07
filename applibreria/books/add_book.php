@@ -20,14 +20,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $genere = trim($_POST["genere"]);
 
     // Validazione dei campi
-    $errors[] = validateLowerCase($titolo, "Titolo");
-    $errors[] = validateLowerCase($autore, "Autore");
+   
 
     if (empty($anno_pubblicazione)) {
         $errors[] = "Il campo Anno di Pubblicazione è obbligatorio.";
     }
 
-    $errors[] = validateLowerCase($genere, "Genere");
+    
 
     // Rimuovi eventuali stringhe per SQL injection
     $titolo = $mysqli->real_escape_string($titolo);
