@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <title> SuperDataBooks</title>
 </head>
-<div class="container bg-success" fluid>
+<div class="container bg-primary" fluid>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
    <h1 class="fs-3"> <a class="navbar-brand fs-3 " href="index.php"> SuperDataBooks</a></h1>

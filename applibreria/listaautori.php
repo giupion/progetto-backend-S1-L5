@@ -69,3 +69,5 @@ if ($result) {
     $mysqli->close();
 
     
+    include("footer.php");
+    ?>
