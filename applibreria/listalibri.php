@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["edit_book_id"])) {
             echo "</div>";
             // Aggiungi un pulsante per modificare il libro
             echo "<div class='d-flex justify-content-between'>";
-            echo "<form action='index.php' method='post'>";
+            echo "<form action='books/edit_book.php' method='post'>";
             echo "<input type='hidden' name='edit_book_id' value='{$row['id']}'>";
             echo "<input type='submit' class='btn btn-primary' value='Modifica'>";
             echo "</form>";

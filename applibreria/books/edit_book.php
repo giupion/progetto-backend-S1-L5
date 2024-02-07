@@ -1,6 +1,11 @@
 <?php
 include("../includes/db.php"); // Supponendo che il file db.php sia nella directory principale
-
+include("../header.php");
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["edit_book_id"])) {
+    $editBookId = $_POST["edit_book_id"];
+    header("Location: edit_book.php?id=$editBookId");
+    exit();
+}
 // Verifica se l'ID del libro è stato passato come parametro
 if (isset($_GET['id'])) {
     $bookId = $_GET['id'];
@@ -54,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     
     <h1 class="mb-4">Modifica Libro</h1>
-    <button class="btn btn-success" style='width: 18rem;' >
+    <button class="btn btn-primary" style='width: 18rem;' >
 <a href="../index.php" class="text-white text-decoration-none">Torna alla pagina aggiungi Libro</a></button>
 <form action="edit_book.php?id=<?php echo $bookId; ?>" method="post">
     <div class="form-group">
@@ -84,4 +89,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <?php
 $mysqli->close();
+
+
+include("../footer.php");
+
+
+  
 ?>
