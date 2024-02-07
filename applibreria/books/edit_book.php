@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     if ($mysqli->query($updateQuery)) {
         echo "Libro aggiornato con successo!";
-        header("refresh:2;url=../index.php");
+        header("refresh:2;url=../listalibri.php");
         exit();
         
     } else {
@@ -48,18 +48,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../libreriacss/libreria.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <title>Modifica Libro</title>
 </head>
 <body>
-    <h1>Modifica Libro</h1>
+    
+    <h1 class="mb-4">Modifica Libro</h1>
+    <button class="btn btn-success" style='width: 18rem;' >
+<a href="index.php" class="text-white text-decoration-none">Torna alla pagina aggiungi Libro</a></button>
+<form action="edit_book.php?id=<?php echo $bookId; ?>" method="post">
+    <div class="form-group">
+        <label for="titolo">Titolo:</label>
+        <input type="text" class="form-control" name="titolo" value="<?php echo $bookData['titolo']; ?>" required>
+    </div>
 
-    <form action="edit_book.php?id=<?php echo $bookId; ?>" method="post">
-        Titolo: <input type="text" name="titolo" value="<?php echo $bookData['titolo']; ?>" required><br>
-        Autore: <input type="text" name="autore" value="<?php echo $bookData['autore']; ?>" required><br>
-        Anno di Pubblicazione: <input type="number" name="anno_pubblicazione" value="<?php echo $bookData['anno_pubblicazione']; ?>" required><br>
-        Genere: <input type="text" name="genere" value="<?php echo $bookData['genere']; ?>" required><br>
-        <input type="submit" value="Salva Modifiche">
-    </form>
+    <div class="form-group">
+        <label for="autore">Autore:</label>
+        <input type="text" class="form-control" name="autore" value="<?php echo $bookData['autore']; ?>" required>
+    </div>
+
+    <div class="form-group">
+        <label for="anno_pubblicazione">Anno di Pubblicazione:</label>
+        <input type="number" class="form-control" name="anno_pubblicazione" value="<?php echo $bookData['anno_pubblicazione']; ?>" required>
+    </div>
+
+    <div class="form-group">
+        <label for="genere">Genere:</label>
+        <input type="text" class="form-control" name="genere" value="<?php echo $bookData['genere']; ?>" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Salva Modifiche</button>
+</form>
 </body>
 </html>
 

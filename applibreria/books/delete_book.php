@@ -11,6 +11,7 @@ if (isset($_GET['id'])) {
     // Esegui la query di eliminazione
     if ($mysqli->query($deleteQuery)) {
         echo "Libro eliminato con successo!";
+        header("refresh:2;url=../listalibri.php");
     } else {
         echo "Errore nell'eliminazione del libro: " . $mysqli->error;
     }

@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     if ($mysqli->query($insertQuery)) {
         echo "Libro aggiunto con successo!";
-        header("Location: ../index.php");} else {
+        header("Location:  ../listalibri.php");} else {
         echo "Errore nell'aggiunta del libro: " . $mysqli->error;
     }
     
