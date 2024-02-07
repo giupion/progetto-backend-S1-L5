@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($mysqli->query($updateQuery)) {
         echo "Libro aggiornato con successo!";
         header("refresh:2;url=../listalibri.php");
-        exit();
+    
         
     } else {
         echo "Errore nell'aggiornamento del libro: " . $mysqli->error;
@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     <h1 class="mb-4">Modifica Libro</h1>
     <button class="btn btn-success" style='width: 18rem;' >
-<a href="index.php" class="text-white text-decoration-none">Torna alla pagina aggiungi Libro</a></button>
+<a href="../index.php" class="text-white text-decoration-none">Torna alla pagina aggiungi Libro</a></button>
 <form action="edit_book.php?id=<?php echo $bookId; ?>" method="post">
     <div class="form-group">
         <label for="titolo">Titolo:</label>

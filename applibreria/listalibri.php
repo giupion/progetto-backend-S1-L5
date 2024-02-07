@@ -1,6 +1,10 @@
 <?php
 include("includes/db.php");
 
+include("header.php");
+
+
+
 // Verifica se il modulo di modifica è stato inviato
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["edit_book_id"])) {
     $editBookId = $_POST["edit_book_id"];
@@ -9,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["edit_book_id"])) {
 }
 ?>
 <h1>Lista Libri</h1>
-<button class="btn btn-success" style='width: 18rem;' >
+<button class="btn btn-primary" style='width: 18rem;' >
 <a href="index.php" class="text-white text-decoration-none">Torna alla pagina aggiungi Libro</a></button>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
@@ -21,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["edit_book_id"])) {
 
     if ($result) {
         while ($row = $result->fetch_assoc()) {
-            echo "<div class='card' style='width: 18rem;'>";
+            echo "<div class='card my-3' style='width: 18rem;'>";
             echo "<div class='card-body'>";
             echo "<h5 class='card-title' style='font-weight: bold;'>Titolo: {$row['titolo']}</h5>";
             echo "<div  class='card-text d-flex flex-column'>
@@ -51,3 +55,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["edit_book_id"])) {
 
     $mysqli->close();
     ?>
+
+    
+<?php
+
+include("footer.php");
+
+?>
