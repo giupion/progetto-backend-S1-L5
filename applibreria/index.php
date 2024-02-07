@@ -1,44 +1,47 @@
 <?php
-include("includes/db.php"); // Include il file di connessione al database
+include("includes/db.php");
+
+// Verifica se il modulo di modifica è stato inviato
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["edit_book_id"])) {
     $editBookId = $_POST["edit_book_id"];
-    header("Location: books/edit_book_form.php?id=$editBookId");
-    exit();}
+    header("Location: books/edit_book.php?id=$editBookId");
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="libreriacss/libreria.css">
-    <title>Library App</title>
+    <title>App Biblioteca</title>
 </head>
 <body>
     <h1>Elenco Libri</h1>
 
     <?php
     // Recupera tutti i libri dal database
-    
-
-
     $query = "SELECT * FROM libri";
     $result = $mysqli->query($query);
+
     if ($result) {
         while ($row = $result->fetch_assoc()) {
-            echo "<p>{$row['titolo']} - {$row['autore']} ({$row['anno_pubblicazione']}) - {$row['genere']}";
+            echo "<div>";
+            echo "<p>{$row['titolo']} - {$row['autore']} ({$row['anno_pubblicazione']}) - {$row['genere']}</p>";
 
             // Aggiungi un pulsante per modificare il libro
-            echo "<form action='index.php' method='post' style='display:inline; margin-left: 10px;'>";
+            echo "<form action='index.php' method='post'>";
             echo "<input type='hidden' name='edit_book_id' value='{$row['id']}'>";
             echo "<input type='submit' value='Modifica'>";
             echo "</form>";
 
-            echo "</p>";
+            echo "</div>";
         }
     } else {
         echo "Errore nella query: " . $mysqli->error;
     }
+
     $mysqli->close();
     ?>
 
